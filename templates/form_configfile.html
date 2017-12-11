@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    button {
+    background-color: cornflowerblue; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 120px;
+    font-size: 16px;
+}
+</style>
+
+<head>
+    <title>Handle POST requests with Flask</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div id="container">
+    <div class="title">
+        <h1>Configura el fichero de configuración</h1>
+    </div>
+    <div id="content">
+        <form method="post" action="{{ url_for('configfile') }}">
+            <label>Escriba el puerto de comunicaciones:</label>
+            <input type="text" name="comunication_port"/><br/>
+
+            <label>Escriba el puerto de sincronización de fecha/hora:</label>
+            <input type="text" name="date_sincronize_port"/><br/>
+            <label>Escribe la IP/DNS del servidor:</label>
+            <input type="text" name="host"/><br/>
+            <label>Escribe el identificador de la Raspberry:</label>
+            <input type="text" name="dispositivo_id"/><br/>
+            <input type="checkbox" name="detections_wifi" value="True">Activar detecciones Wifi<br>
+            <input type="checkbox" name="detections_bluetooth" value="True">Activar detecciones Bluetooth<br>
+            <button type="submit" name="btn" value="Send" > Enviar</button>
+            <button type="submit" name="btn" value="Restart"> Reiniciar servicio</button>
+            <button type="submit" name="btn" value="Stop"> Parar servicio</button>
+            <button type="submit" name="btn" value="Start"> Iniciar servicio</button>
+            <button type="submit" name="btn" value="State"> Estado servicio</button>
+            <button type="submit" name="btn" value="IP_Configure"> Configurar IP estatica</button>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
